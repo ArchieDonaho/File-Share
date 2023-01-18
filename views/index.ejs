@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head></head>
+  <body>
+    <!-- runs on the server, not the client -->
+    <% if (locals.fileLink != null) { %>
+    <div style="margin-bottom: 1rem">
+      Your file is uploaded
+      <a href="<%= locals.fileLink %>"><%= locals.fileLink %></a>
+    </div>
+    <%} %>
+    <form
+      method="post"
+      action="/upload"
+      enctype="multipart/form-data"
+      style="
+        display: grid;
+        gap: 0.5rem;
+        grid-template-columns: auto 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+      "
+    >
+      <label for="file">File:</label>
+      <input type="file" id="file" name="file" required />
+      <label for="password">password:</label>
+      <input type="password" id="password" name="password" />
+      <button style="grid-column: span 2" type="submit">share</button>
+    </form>
+  </body>
+</html>
